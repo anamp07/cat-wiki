@@ -1,6 +1,8 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { createTheme, ThemeProvider } from '@mui/material';
+import { createBreakpoints } from "@mui/system";
+const breakpoints = createBreakpoints({});
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -16,6 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
       h2: {
         fontSize: 36,
         fontWeight: 700,
+        [breakpoints.down("md")]: {
+          fontSize: 18
+        },
       },
       body1: {
         fontSize: 18,
@@ -33,9 +38,8 @@ export default function App({ Component, pageProps }: AppProps) {
         fontSize: 15,
         fontWeight: 500,
         color: '#FFFFFF',
-        '@media (min-width:600px)': {
-          fontSize: '24px',
-          lineHeight: '1.2',
+        [breakpoints.down("md")]: {
+          fontSize: 10
         },
       },
     },
